@@ -24,7 +24,7 @@ export default class SearchComponent extends Component {
         <View style={styles.btnView}>
           <TouchableOpacity
             disabled={this.state.searchText.length == 0}
-            onPress={() => this.props.onSearch(this.state.searchText)}
+            onPress={() => this.props.onSearch(this.state.searchText.toLowerCase())}
             style={styles.to}
           >
             <Text style={styles.btnText}>Search</Text>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderRadius: 5,
+    height:40,
     backgroundColor: "#fff",
     borderWidth: 1,
     borderColor: "#d4d4d4"

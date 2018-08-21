@@ -1,59 +1,32 @@
 import React, { PureComponent } from "react";
 import {
   View,
-  Text,
-  TouchableOpacity,
   Image,
-  FlatList,
-  ActivityIndicator,
   StyleSheet,
-  Platform
+  Dimensions
 } from "react-native";
-
+const { width } = Dimensions.get('window');
 export default class ImageComponent extends PureComponent {
   constructor() {
     super();
   }
 
   render() {
+    let imagePerRow = this.props.numColumns || 1;
+    let getImageStyle = () => {
+      let size = width / imagePerRow;
+      return { width: size, height: size }
+    }
     return (
-      <View style={styles.imageHolder}>
-        <Image source={{ uri: this.props.imageURI }} style={styles.image} />
+      <View style={[styles.container, getImageStyle()]}>
+        <Image resizeMode="cover" source={{ uri: this.props.imageURI }} style={getImageStyle()} />
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: Platform.OS === "ios" ? 20 : 0
+    backgroundColor: '#fff',
   },
 
-  imageHolder: {
-    margin: 5,
-    height: 160,
-    flex: 1,
-    position: "relative"
-  },
-
-  image: {
-    height: "100%",
-    width: "100%",
-    resizeMode: "cover"
-  },
-
-  textViewHolder: {
-    position: "absolute",
-    left: 0,
-    bottom: 0,
-    right: 0,
-    backgroundColor: "rgba(0,0,0,0.75)",
-    paddingHorizontal: 10,
-    paddingVertical: 13,
-    alignItems: "center"
-  },
-
-  textOnImage: {
-    color: "white"
-  }
 });
