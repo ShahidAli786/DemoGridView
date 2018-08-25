@@ -1,4 +1,5 @@
-# GridView - React Native
+# Demo GridView - React Native
+  React Native GridView using flatlist and offline support
 
 ## Running the application
 
