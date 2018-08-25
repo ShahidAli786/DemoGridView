@@ -22,6 +22,16 @@
     "jest": "23.5.0",
     "react-test-renderer": "16.4.1"
   },
+   "keywords": [
+    "react",
+    "native",
+    "responsive",
+    "super",
+    "grid",
+    "view",
+    "flatlist",
+    "listview"
+  ],
   "jest": {
     "preset": "react-native"
   }
